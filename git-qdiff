@@ -44,7 +44,7 @@ if __name__ == '__main__':
             sys.exit(0)
 
     # TODO: ensure infinite subcalls is not possible
-    cmd = ['git', 'difftool', '-d', '-x', sys.argv[0]]
+    cmd = ['git', 'difftool', '-d', '-x'] + sys.argv
     # print("Launching '%s'" % ' '.join(cmd))
     try:
         subprocess.check_call(cmd)
