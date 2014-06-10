@@ -9,13 +9,13 @@ class UnmetDependency(OSError):
 
 def qdiff(left, right):
     left, right = opj(left, ''), opj(right, '')
-    subprocess.check_call(['bzr', 'init', left])
-    subprocess.check_call(['bzr', 'add', left])
     os.chdir(left)
-    subprocess.check_call(['bzr', 'commit', '-mm'])
-    subprocess.check_call(['rsync', '-avLt', right, left])
-    subprocess.check_call(['bzr', 'add', left])
-    subprocess.check_call(['bzr', 'qdiff'])
+    subprocess.check_call(['bzr', 'init', '-q'])
+    subprocess.check_call(['bzr', 'add', '-q'])
+    subprocess.check_call(['bzr', 'commit', '-qmm'])
+    subprocess.check_call(['rsync', '-qavLt', right, left])
+    subprocess.check_call(['bzr', 'add', '-q'])
+    subprocess.check_call(['bzr', 'qdiff', '-q'])
 
 def check_dependencies():
     try:
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     # TODO: ensure infinite subcalls is not possible
     cmd = ['git', 'difftool', '-d', '-x', sys.argv[0]]
-    print("Launching '%s'" % ' '.join(cmd))
+    # print("Launching '%s'" % ' '.join(cmd))
     try:
         subprocess.check_call(cmd)
     except subprocess.CalledProcessError, e:
