@@ -46,3 +46,10 @@ git qdiff my_feature..origin/master
 
 # ...
 ```
+
+Known problem
+-------------
+
+- `Refresh` button won't work
+
+Before reporting an issue, please check that your `bzr qdiff` tool works well.
