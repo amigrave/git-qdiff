@@ -13,7 +13,7 @@ def qdiff(left, right):
     subprocess.check_call(['bzr', 'init', '-q'])
     subprocess.check_call(['bzr', 'add', '-q'])
     subprocess.check_call(['bzr', 'commit', '-qmm'])
-    subprocess.check_call(['rsync', '-qavLt', right, left]) # TODO: avoid rsync dependency
+    subprocess.check_call(['rsync', '-qavLt', '--delete', '--exclude=/.bzr', right, left])
     subprocess.check_call(['bzr', 'add', '-q'])
     subprocess.check_call(['bzr', 'qdiff', '-q'])
 
