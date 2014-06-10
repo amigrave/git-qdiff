@@ -17,7 +17,7 @@ Just type this in your terminal:
 Dependencies
 ------------
 
-- git
+- git (1.7.11+)
 - bazaar
 - qbzr tools
 - rsync

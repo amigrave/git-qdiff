@@ -23,6 +23,10 @@ def check_dependencies():
     except subprocess.CalledProcessError:
         raise UnmetDependency("Could not find `git` program")
 
+    ver = map(int, gitv.split('.')[0:3])
+    if cmp(ver, [1, 7, 11]) < 0:
+        raise UnmetDependency("Need at least `git` version 1.7.11+")
+
     try:
         bzrv = subprocess.check_output(['bzr', 'version']).splitlines()[0].split()[-1]
     except subprocess.CalledProcessError:
