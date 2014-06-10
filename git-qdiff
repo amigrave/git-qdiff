@@ -36,7 +36,10 @@ def check_dependencies():
     return gitv and bzrv # TODO: check minimum requirements
 
 if __name__ == '__main__':
-    check_dependencies()
+    try:
+        check_dependencies()
+    except Exception, e:
+        sys.exit(e.message)
     if len(sys.argv) == 3:
         left, right = sys.argv[1:3]
         if os.path.isdir(left) and os.path.isdir(right):
