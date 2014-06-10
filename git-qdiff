@@ -3,10 +3,37 @@ import os
 import subprocess
 import sys
 
+class UnmetDependency(OSError):
+    pass
+
 def qdiff(left, right):
     pass
 
+def bzr_version():
+    r = subprocess.check_output(['bzr', 'version'])
+    r = subprocess.check_output(['bzr', 'version'])
+    return r
+
+def check_dependencies():
+    try:
+        gitv = subprocess.check_output(['git', '--version']).split()[-1]
+    except subprocess.CalledProcessError:
+        raise UnmetDependency("Could not find `git` program")
+
+    try:
+        bzrv = subprocess.check_output(['bzr', 'version']).splitlines()[0].split()[-1]
+    except subprocess.CalledProcessError:
+        raise UnmetDependency("Could not find `bzr` program")
+
+    try:
+        subprocess.check_output(['bzr', 'qdiff', '--help'])
+    except subprocess.CalledProcessError:
+        raise UnmetDependency("Could not find `bzr qdiff` plugin")
+
+    return gitv and bzrv # TODO: check minimum requirements
+
 if __name__ == '__main__':
+    check_dependencies()
     if len(sys.argv) == 3:
         left, right = sys.argv[1:3]
         if os.path.isdir(left) and os.path.isdir(right):
