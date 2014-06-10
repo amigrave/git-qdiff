@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import os
+import subprocess
+import sys
+
+def qdiff(left, right):
+    pass
+
+if __name__ == '__main__':
+    if len(sys.argv) == 3:
+        left, right = sys.argv[1:3]
+        if os.path.isdir(left) and os.path.isdir(right):
+            qdiff(left, right)
+            sys.exit(0)
+
+    # TODO: ensure infinite subcalls is not possible
+    cmd = ['git', 'difftool', '-d', '-x', sys.argv[0]]
+    print("Launching '%s'" % ' '.join(cmd))
+    try:
+        subprocess.check_call(cmd)
+    except subprocess.CalledProcessError, e:
+        sys.exit("git failed with returncode %d" % e.returncode)
