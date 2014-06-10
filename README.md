@@ -11,7 +11,8 @@ Installation
 
 Just type this in your terminal:
 
-    sudo wget https://raw.githubusercontent.com/amigrave/ringo-mongodb/master/lib/mongodb.js -P /usr/local/bin
+    sudo wget https://raw.githubusercontent.com/amigrave/git-qdiff/master/git-qdiff -P /usr/local/bin
+    sudo chmod +x /usr/local/bin/git-qdiff
 
 Dependencies
 ------------
