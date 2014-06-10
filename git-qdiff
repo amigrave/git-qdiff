@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+from os.path import join as opj
 import subprocess
 import sys
 
@@ -7,12 +8,14 @@ class UnmetDependency(OSError):
     pass
 
 def qdiff(left, right):
-    pass
-
-def bzr_version():
-    r = subprocess.check_output(['bzr', 'version'])
-    r = subprocess.check_output(['bzr', 'version'])
-    return r
+    left, right = opj(left, ''), opj(right, '')
+    subprocess.check_call(['bzr', 'init', left])
+    subprocess.check_call(['bzr', 'add', left])
+    os.chdir(left)
+    subprocess.check_call(['bzr', 'commit', '-mm'])
+    subprocess.check_call(['rsync', '-avLt', right, left])
+    subprocess.check_call(['bzr', 'add', left])
+    subprocess.check_call(['bzr', 'qdiff'])
 
 def check_dependencies():
     try:
