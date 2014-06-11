@@ -9,7 +9,7 @@ Of course you do ! Why would you be there ?
 Installation
 ------------
 
-    pip install git-qdiff
+    pip install --upgrade git-qdiff
 
 Dependencies
 ------------

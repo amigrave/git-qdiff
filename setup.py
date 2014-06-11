@@ -7,7 +7,7 @@ with open('README.md') as f:
 
 setup(
     name='git-qdiff',
-    version='0.1',
+    version='0.1.1',
     author='Fabien Meghazi',
     author_email='agr@amigrave.com',
     license='MIT',
