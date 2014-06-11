@@ -29,7 +29,7 @@ def check_dependencies():
         raise UnmetDependency("Need at least `git` version 1.7.11+")
 
     try:
-        bzrv = subprocess.check_output(['bzr', 'version']).splitlines()[0].split()[-1]
+        subprocess.check_output(['bzr', 'version']).splitlines()[0].split()[-1]
     except subprocess.CalledProcessError:
         raise UnmetDependency("Could not find `bzr` program")
 
@@ -38,7 +38,10 @@ def check_dependencies():
     except subprocess.CalledProcessError:
         raise UnmetDependency("Could not find `bzr qdiff` plugin")
 
-    return gitv and bzrv # TODO: check minimum requirements
+    try:
+        subprocess.check_output(['rsync', '--help'])
+    except subprocess.CalledProcessError:
+        raise UnmetDependency("Could not find `rsync` program")
 
 def main():
     try:
