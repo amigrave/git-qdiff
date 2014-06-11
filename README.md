@@ -28,7 +28,7 @@ Once installed, you should be able to use this command from any git repository:
 
 And this should launch your favorite difftool:
 
-[![screenshot](https://github.com/amigrave/git-qdiff/raw/master/screenshot.png)]
+![screenshot](https://github.com/amigrave/git-qdiff/raw/master/screenshot.png)
 
 Of course you can use the same notations as you would with `git diff`:
 
