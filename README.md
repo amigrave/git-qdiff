@@ -4,12 +4,12 @@ git-qdiff
 So you miss `bzr qdiff` ?
 -------------------------
 
-Of course you do ! Why would you be there ?
+Of course you do ! Why would you be here ?
 
 Installation
 ------------
 
-    pip install --upgrade git-qdiff
+    $ sudo pip install --upgrade git-qdiff
 
 Dependencies
 ------------
@@ -24,13 +24,13 @@ Usage
 
 Once installed, you should be able to use this command from any git repository:
 
-    git qdiff
+    $ git qdiff
 
 And this should launch your favorite difftool:
 
 ![screenshot](https://github.com/amigrave/git-qdiff/raw/master/screenshot.png)
 
-Of course you can use the same notations as you would with `git diff`:
+Of course you can use the same notation as you would with `git diff`:
 
 ```bash
 # Show both staged and unstaged changes
