@@ -42,8 +42,8 @@ $ git qdiff HEAD~2..HEAD~3
 # Between commits
 $ git qdiff 53c43de..7c70faf
 
-# Between branches
-$ git qdiff my_feature..origin/master
+# Before merging branches
+$ git qdiff origin/master...my_feature_branch
 
 # ...
 ```
