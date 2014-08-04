@@ -60,6 +60,21 @@ On a fresh install, you'd might need to run this command first:
 
     bzr whoami "Your Name <name@example.com>"
 
+Goodies
+-------
+
+### tig
+
+For those using [tig](http://jonas.nitro.dk/tig/), here's a handy shortcut bound to `D` key.
+Add this to your `.gitconfig`:
+
+```ini
+[tig "bind"]
+    generic = D !git qdiff %(commit)~1..%(commit)
+```
+
+*Note: Don't try this on the "unstaged changes" line in tig's log view*
+
 License
 -------
 
