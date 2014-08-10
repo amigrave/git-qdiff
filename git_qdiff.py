@@ -19,7 +19,7 @@ def qdiff(left, right):
 
 def check_dependencies():
     try:
-        gitv = subprocess.check_output(['git', '--version']).split()[-1]
+        gitv = subprocess.check_output(['git', '--version']).split()[2]
     except subprocess.CalledProcessError:
         raise UnmetDependency("Could not find `git` program")
 
