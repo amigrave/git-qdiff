@@ -56,10 +56,6 @@ Known problem
 Before reporting an issue, please check that your `bzr qdiff` tool works well
 and that you can actually commit something with bazaar.
 
-On a fresh install, you'd might need to run this command first:
-
-    bzr whoami "Your Name <name@example.com>"
-
 Goodies
 -------
 
