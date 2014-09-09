@@ -69,6 +69,20 @@ Add this to your `.gitconfig`:
     generic = D !git qdiff %(commit)~1..%(commit)
 ```
 
+### alias
+
+This alias is handy when you want to show a single commit in git-qdiff.
+Add this to your `.gitconfig`:
+
+```ini
+[alias]
+    qshow = "!git show $1 --quiet; git qdiff $1~1...$1"
+```
+
+and use it like this:
+
+    $ git qshow 61376d9
+
 *Note: Don't try this on the "unstaged changes" line in tig's log view*
 
 License
