@@ -29,7 +29,7 @@ def qdiff(left, right):
     call('bzr', 'add', '-q')
     # Set dummy identity in case bzr is not configured
     call('bzr', 'whoami', '-d', '.', '"Your Name <name@example.com>"')
-    call('bzr', 'commit', '-qmm')
+    call('bzr', 'commit', '-qmm', '--unchanged')
     call('rsync', '-qavLt', '--delete', '--exclude=/.bzr', right, left)
     call('bzr', 'add', '-q')
     call('bzr', 'qdiff', '-q')
