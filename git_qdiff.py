@@ -74,6 +74,8 @@ def main():
                 qdiff(left, right)
             except Exception as e:
                 sys.exit(str(e))
+            except KeyboardInterrupt:
+                pass
             sys.exit(0)
 
     # TODO: ensure infinite subcalls is not possible
@@ -84,3 +86,5 @@ def main():
     except subprocess.CalledProcessError as e:
         sys.stderr.write(str(e))
         sys.exit(e.returncode)
+    except KeyboardInterrupt:
+        sys.exit(0)
