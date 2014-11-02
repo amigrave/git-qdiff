@@ -27,8 +27,11 @@ def qdiff(left, right):
     os.chdir(left)
     call('bzr', 'init', '-q')
     call('bzr', 'add', '-q')
-    # Set dummy identity in case bzr is not configured
-    call('bzr', 'whoami', '-d', '.', '"Your Name <name@example.com>"')
+    try:
+        call('bzr', 'config', 'email')
+    except CallError:
+        # Set dummy identity in case bzr is not configured
+        call('bzr', 'whoami', '-d', '.', '"Your Name <name@example.com>"')
     call('bzr', 'commit', '-qmm', '--unchanged')
     call('rsync', '-qavLt', '--delete', '--exclude=/.bzr', right, left)
     call('bzr', 'add', '-q')
