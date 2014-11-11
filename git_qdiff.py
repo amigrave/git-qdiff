@@ -4,6 +4,8 @@ from os.path import join as opj
 import subprocess
 import sys
 
+VERSION = '0.2.1'
+
 class UnmetDependency(OSError):
     pass
 
@@ -63,6 +65,9 @@ def check_dependencies():
         raise UnmetDependency("Could not find `rsync` program")
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == '--version':
+        print("git-qdiff %s" % VERSION)
+        sys.exit()
     try:
         check_dependencies()
     except Exception as e:
