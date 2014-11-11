@@ -1,4 +1,4 @@
-git-qdiff (v0.2.1)
+git-qdiff (v0.2.2)
 ==================
 
 So you miss `bzr qdiff` ?

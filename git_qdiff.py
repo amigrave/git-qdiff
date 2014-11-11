@@ -4,7 +4,7 @@ from os.path import join as opj
 import subprocess
 import sys
 
-VERSION = '0.2.1'
+VERSION = '0.2.2'
 
 class UnmetDependency(OSError):
     pass
