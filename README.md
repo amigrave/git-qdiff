@@ -1,6 +1,8 @@
 git-qdiff (v0.2.2)
 ==================
 
+test
+
 So you miss `bzr qdiff` ?
 -------------------------
 
